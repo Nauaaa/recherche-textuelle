@@ -4,6 +4,7 @@ def recherche_naive(texte, mot):
     assert texte != "", "Il n'y a pas de texte dans lequel chercher."
     assert mot != "", "Il n'y a pas de mot à chercher."
     result = 0
+    reresult = []
     for a in range(len(texte)):
         if texte[a] == mot[0]:
             var = 0
@@ -12,7 +13,9 @@ def recherche_naive(texte, mot):
                     var += 1
             if var == 0:
                 result += 1
-    return result
+                reresult.append(a)
+    print("il y a", result ,"occurence du mot recherché aux emplacements:")
+    print(reresult)
 
 long_alpha = 256
 def alphabet(texte):

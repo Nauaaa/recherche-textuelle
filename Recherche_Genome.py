@@ -44,6 +44,7 @@ def recherche_naive(texte, mot):
     assert texte != "", "Il n'y a pas de texte dans lequel chercher."
     assert mot != "", "Il n'y a pas de mot à chercher."
     result = 0
+    reresult = []
     for a in range(len(texte)):
         if texte[a] == mot[0]:
             var = 0
@@ -52,7 +53,9 @@ def recherche_naive(texte, mot):
                     var += 1
             if var == 0:
                 result += 1
-    return result
+                reresult.append(a)
+    print("il y a", result ,"occurence du mot recherché aux emplacements:")
+    print(reresult)
 
 fichier=input("Veuillez écrire le nom du fichier qui contient le génome que vous voulez étudier :")
 # Ouvre le fichier f'fichier' en mode lecture avec l'encodage 'utf-8'
@@ -77,5 +80,3 @@ for mot in lignes:
 
 paterne=input("veuillez écrire le paterne que vous comptez rechercher dans le génome:")
 recherche(genome, paterne)
-
-
