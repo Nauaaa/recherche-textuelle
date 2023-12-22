@@ -39,7 +39,8 @@ def recherche_naive(texte, mot):
     # Vérifie que les arguments sont des chaînes de caractères
     assert type(texte) == str, "Le texte doit être un 'str' !"
     assert type(mot) == str, "Le mot recherché doit être un 'str' !"
-
+    assert texte != "", "Il n'y a pas de texte dans lequel chercher."
+    assert mot != "", "Il n'y a pas de mot à chercher."
     # Initialisation du compteur de résultats
     result = 0
 
@@ -51,7 +52,7 @@ def recherche_naive(texte, mot):
             # Parcourt chaque caractère du motif
             for b in range(len(mot)):
                 # Compare les caractères du texte et du motif
-                if texte[a + b] != mot[b]:
+                if (a + b) < len(texte) and texte[a + b] != mot[b]:
                     var += 1
             # Si toutes les correspondances sont trouvées, incrémente le compteur de résultats
             if var == 0:
